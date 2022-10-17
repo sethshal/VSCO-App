@@ -26,6 +26,8 @@ Libraries used for the application
    3. I would have like to define different screen sizes to accommodate for different screen sizes. I did add landscape mode
    4. I would have liked to add custom exception classes to make the error handling more elegant.
    5. I would have liked to integrate paging into the whole application time permitting
+   6. I would have worked more on making the UI cleaner given more time
+   
    
  
 
