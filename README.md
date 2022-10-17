@@ -25,6 +25,7 @@ Libraries used for the application
    2. I added very basic unit tests. Given more time would have definitely wanted to add full coverage.
    3. I would have like to define different screen sizes to accommodate for different screen sizes. I did add landscape mode
    4. I would have liked to add custom exception classes to make the error handling more elegant.
+   5. I would have liked to integrate paging into the whole application time permitting
    
  
 
