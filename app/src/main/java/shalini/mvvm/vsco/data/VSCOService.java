@@ -14,5 +14,7 @@ public interface VSCOService {
 
   @Headers("Content-Type: application/json")
   @GET("/api/")
-  Observable<VSCOResponse> fetchHits( @Query("safesearch") boolean safesearch, @Query("q") String q );
+  Observable<VSCOResponse> fetchHits(
+          @Query("safesearch") boolean safesearch,
+          @Query(value="q", encoded=true) String q );
 }

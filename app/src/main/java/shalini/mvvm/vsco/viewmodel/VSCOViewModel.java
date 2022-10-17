@@ -25,7 +25,7 @@ import shalini.mvvm.vsco.model.Hit;
 @HiltViewModel
 public class VSCOViewModel extends ViewModel {
 
-    // The Live Data that is bound to the view. This is observed by the VSCOActivity to display data
+    // The Live Data that is bound to the view. This is observed by the VSCOListFragment to display data
     public MutableLiveData <Boolean> hitsLabel = new MutableLiveData<>();
     public MutableLiveData <Boolean> hitsProgress = new MutableLiveData<>();
     public MutableLiveData <Boolean> hitRecycler = new MutableLiveData<>();
@@ -66,6 +66,7 @@ public class VSCOViewModel extends ViewModel {
 
     /**
      * This method can return make the rest API call and the rx observer is setup.
+     * By default the querystring is empty
      * @param queryString
      */
 

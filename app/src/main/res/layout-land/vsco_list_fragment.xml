@@ -26,7 +26,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/search_image"
                 android:imeOptions="flagNoExtractUi"
-                android:tooltipText="Search Image" />
+                android:focusable="false"
+                app:iconifiedByDefault="false"
+                app:queryHint="@string/searchText" />
 
         </androidx.appcompat.widget.Toolbar>
 

@@ -17,8 +17,7 @@ public class VSCOActivity extends AppCompatActivity {
 
     /**
      * All the initialization for the activity happens here. Note: If the device is rotated
-     * this is called again. Need to be careful avoid network calls here. This sets up the bindings,
-     * toolbar and the observers.
+     * this is called again. Need to be careful avoid network calls here.
      * @param savedInstanceState
      */
     @Override

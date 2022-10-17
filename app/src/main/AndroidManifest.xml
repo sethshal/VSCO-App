@@ -29,6 +29,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="shalini.mvvm.vsco.utils.VSCOGlideModule"
+            android:value="VSCOGlideModule" />
     </application>
 
 </manifest>

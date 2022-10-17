@@ -5,6 +5,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.databinding.BindingAdapter;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.annotation.GlideModule;
+
+import hilt_aggregated_deps._shalini_mvvm_vsco_di_VSCOServiceModule;
+import shalini.mvvm.vsco.R;
 
 /**
  * This is used to setup a custom android tag for the XML. So that the hit image can be displayed
@@ -15,7 +19,12 @@ public class Binders {
 
     @BindingAdapter("imageUrl")
     public static void setImageUrl(ImageView imageView, String url) {
-        Glide.with(imageView.getContext()).load(url).into(imageView);
+        Glide
+                .with(imageView.getContext())
+                .load(url)
+                .placeholder(R.drawable.ic_default_image)
+                .error(R.drawable.ic_error_image)
+                .into(imageView);
     }
 
 

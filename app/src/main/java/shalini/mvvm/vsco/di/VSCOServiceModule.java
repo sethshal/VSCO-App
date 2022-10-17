@@ -26,14 +26,16 @@ import shalini.mvvm.vsco.data.VSCOService;
 public class VSCOServiceModule {
 
     private final static String BASE_URL = "https://pixabay.com/api/?key=30604832-d383f2bd104bf4a45a3dd004f&q=yellow+flowers&image_type=photo/";
+    private static final String API_KEY = "29061306-9cbb474b220e9a07b0efe38a4";
 
     /**
      * Create in instance of retrofit. Ideally this would be used in conjunction with
-     * Interceptors to use auth token.
+     * Interceptors to use auth token. I do have an interceptor with the key in this case.
+     *
      * @return
      */
     @Provides
-    public static VSCOService provideVSCOService(  ) {
+    public static VSCOService provideVSCOService() {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -42,18 +44,22 @@ public class VSCOServiceModule {
         return retrofit.create(VSCOService.class);
     }
 
-    public static OkHttpClient getHttpClient(){
-
+    /**
+     * This is the instance of the interceptor. It injects the api key to every call
+     *
+     * @return OkHttpClient
+     */
+    public static OkHttpClient getHttpClient() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(new Interceptor() {
-            @Override
-            public Response intercept(Interceptor.Chain chain) throws IOException {
-                Request request = chain.request();
-                HttpUrl url = request.url().newBuilder().addQueryParameter("key","29061306-9cbb474b220e9a07b0efe38a4").build();
-                request = request.newBuilder().url(url).build();
-                return chain.proceed(request);
-            }
-        }).build();
+                    @Override
+                    public Response intercept(Interceptor.Chain chain) throws IOException {
+                        Request request = chain.request();
+                        HttpUrl url = request.url().newBuilder().addQueryParameter("key", API_KEY).build();
+                        request = request.newBuilder().url(url).build();
+                        return chain.proceed(request);
+                    }
+                }).build();
 
         return client;
     }

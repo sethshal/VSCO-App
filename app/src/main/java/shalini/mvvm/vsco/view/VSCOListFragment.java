@@ -42,6 +42,11 @@ public class VSCOListFragment extends Fragment {
         return binding.getRoot();
     }
 
+    /**
+     * All the binding initializations happen here
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -54,12 +59,18 @@ public class VSCOListFragment extends Fragment {
         observeViewModel();
     }
 
+    /**
+     * The toolbar is specifically used to display the search bar
+     */
     private void setupToolbar(){
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(binding.toolbar);
         activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
+    /**
+     * The searchView is used to conduct the search in the application
+     */
     private void setUpSearch() {
         binding.searchImage.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             // Override onQueryTextSubmit method which is call when submit query is searched
@@ -84,7 +95,7 @@ public class VSCOListFragment extends Fragment {
     /**
      * This is the UI element that refreshes the view. The swipetorefresh android UI
      * element is used to force a refresh and hit the rest endpoint. There is a handler
-     * here that dismisses the refesh UI 3 seconds after called so as to keep the UI clean
+     * here that dismisses the refresh UI 3 seconds after called so as to keep the UI clean
      */
     private void setupRefresh() {
         binding.refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 /**
  * Hits POJO class. Note this does not have any room references yet as the data is not
- * persisted locally for the purpose of this demo
+ * persisted locally for the purpose of this demo. I have for now used all of the returned JSON
  *
  */
 
